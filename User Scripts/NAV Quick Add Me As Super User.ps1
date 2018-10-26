@@ -6,10 +6,8 @@
 # NAV Service Tier Name
 $NavServiceName = '';
 
-# 71, 80, 90, 100
-$NavVersion = 90;
-
-Import-Module "C:\Program Files\Microsoft Dynamics NAV\$($NavVersion)\Service\NavAdminTool.ps1"
+$NavVersion = (Get-ChildItem -Path "c:\program files\Microsoft Dynamics NAV" -Directory | Select-Object -Last 1).Name
+Import-Module "C:\Program Files\Microsoft Dynamics NAV\$NavVersion\Service\NavAdminTool.ps1"
 
 $me = whoami
 
